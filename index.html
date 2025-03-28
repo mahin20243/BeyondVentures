@@ -1,0 +1,2693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Ventures - Dubai Scholars' Commerce Magazine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            background: #000051; /* Solid dark blue */
+            /* Or keep the gradient but make it darker */
+            background: linear-gradient(135deg, #000033 0%, #000051 100%);
+            color: #ffffff;
+        }
+        
+        header {
+            background-color: #000051;
+            color: white;
+            padding: 1rem 2rem; /* Reduced from 1.5rem 2rem */
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 50% 50%, rgba(57, 73, 171, 0.4) 0%, rgba(26, 35, 126, 0.8) 70%);
+            z-index: 0;
+        }
+        
+        header > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        nav {
+            background-color: #000051;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav a:hover {
+            background-color: #3949ab;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        nav a:hover::after {
+            width: 80%;
+        }
+        
+        nav a.active {
+            background-color: #3949ab;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        nav a.active::after {
+            width: 80%;
+        }
+
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            width: 100%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding: 4rem 1.5rem;
+            background-color: #e8eaf6;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+            background-image: url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.7) 0%, rgba(57, 73, 171, 0.4) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.8;
+        }
+        
+        .card {
+            width: 100%;
+            max-width: 900px;
+            background-color: rgba(0, 0, 80, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #ffffff;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .card h2 {
+            color: #90caf9;  /* Lighter blue */
+        }
+        
+        .card h3 {
+            color: #82b1ff !important;  /* Light vibrant blue */
+        }
+        
+        .card h4 {
+            color: #64b5f6 !important;  /* Sky blue */
+        }
+        
+        .card p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .team-members {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+            justify-content: center;
+        }
+        
+        .team-member {
+            background-color: rgba(0, 0, 80, 0.8);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            color: #ffffff;
+            position: relative;
+            cursor: pointer;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .team-member h3 {
+            color: #90caf9;  /* Lighter blue */
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+        
+        .team-member p.role {
+            font-weight: bold;
+            margin-bottom: 1.2rem;
+            color: #64b5f6;  /* Sky blue */
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+            padding: 0 5px;
+        }
+        
+        .team-member p.role::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: #3949ab;
+        }
+        
+        .team-member .profile-pic {
+            width: 180px;    /* Increased from 140px */
+            height: 180px;   /* Increased from 140px */
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem auto;
+            border: 4px solid #1a237e;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            /* Cool frame effect */
+            padding: 5px;
+            background: linear-gradient(135deg, #3949ab, #1a237e);
+        }
+        
+        .team-member .profile-pic::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            z-index: 1;
+        }
+        
+        .team-member:hover .profile-pic {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Add a shine effect on hover */
+        .team-member .profile-pic::after {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            height: 300%;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(30deg);
+            transition: all 0.6s ease;
+        }
+        
+        .team-member:hover .profile-pic::after {
+            top: 100%;
+            left: 100%;
+        }
+        
+        .themes {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+            justify-content: center;
+        }
+        
+        .theme {
+            background-color: rgba(0, 0, 80, 0.8);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            color: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+        
+        .theme:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .theme h3 {
+            color: #90caf9;  /* Lighter blue */
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .theme h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: #3949ab;
+        }
+        
+        .theme img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            margin: 0 auto 1.5rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .theme:hover img {
+            transform: scale(1.03);
+        }
+        
+        .theme ul {
+            text-align: center;
+            list-style-position: inside;
+            margin: 1rem auto;
+            max-width: 400px;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: #000080;
+            color: #ffffff;
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #3949ab;
+            transition: all 0.3s ease;
+            z-index: -1;
+            border-radius: 30px;
+        }
+        
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            background-color: #000051;
+        }
+        
+        .button:hover::before {
+            width: 100%;
+        }
+        
+        ul {
+            margin: 0 auto 1.5rem;
+            max-width: 800px;
+            list-style-position: inside;
+            text-align: left;
+        }
+        
+        .centered-list {
+            list-style-position: inside;
+            text-align: center;
+        }
+        
+        .submission-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            justify-content: center;
+        }
+        
+        .logo {
+            max-width: 120px;    /* Reduced from 150px */
+            margin-bottom: 1rem; /* Reduced from 1.5rem */
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background-color: #000;
+            padding: 10px;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Changemakers section */
+        .changemakers {
+            margin-top: 3rem;
+        }
+        
+        .section-heading {
+            color: #82b1ff !important;  /* Light vibrant blue */
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+        
+        .section-heading::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #3949ab;
+        }
+        
+        /* VS battle section */
+        .vs-container {
+            width: 100%;
+            max-width: 1000px;
+            position: relative;
+            display: flex;
+            margin: 3rem auto;
+            justify-content: center;
+        }
+        
+        .vs-divider {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1a237e;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            border: 4px solid white;
+            z-index: 10;
+        }
+        
+        .changemaker-card {
+            flex: 1;
+            background-color: rgba(0, 0, 80, 0.8);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 1;
+            color: #ffffff;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+        
+        .changemaker-card:first-child {
+            margin-right: 40px;
+        }
+        
+        .changemaker-card:last-child {
+            margin-left: 40px;
+        }
+        
+        .changemaker-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+            z-index: 2;
+        }
+        
+        .changemaker-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 4px solid #1a237e;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .changemaker-card:hover .changemaker-img {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .changemaker-name {
+            color: #90caf9;  /* Lighter blue */
+            margin-bottom: 0.8rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        
+        .changemaker-type {
+            font-weight: bold;
+            color: #64b5f6;  /* Sky blue */
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background-color: rgba(57, 73, 171, 0.2);
+            text-align: center;
+            width: fit-content;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .changemaker-desc {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+        
+        .changemaker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+        
+        .changemaker {
+            background-color: #e8eaf6;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .changemaker:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .changemaker img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .changemaker:hover img {
+            transform: scale(1.03);
+        }
+        
+        .changemaker h4 {
+            color: #1a237e;
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+        }
+        
+        .changemaker p.type {
+            font-weight: bold;
+            color: #3949ab;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+            padding: 0 8px;
+        }
+        
+        .changemaker p.type::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: #3949ab;
+        }
+        
+        /* Additional VS Battle specific styles */
+        .vs-battle {
+            margin-top: 2rem;
+        }
+
+        .battle-comparison {
+            margin-top: 3rem;
+        }
+
+        .journey-highlights ul {
+            padding-left: 1.5rem;
+        }
+
+        .journey-highlights li {
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        /* Enhance the VS divider for more impact */
+        .vs-divider {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #1a237e, #3949ab);
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 0 25px rgba(0,0,0,0.4);
+            border: 4px solid white;
+            z-index: 10;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* Add a shine effect to the VS divider */
+        .vs-divider::after {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            height: 300%;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(30deg);
+            transition: all 0.6s ease;
+        }
+
+        .vs-divider:hover::after {
+            top: 100%;
+            left: 100%;
+        }
+        
+        /* Decorative elements */
+        .decorative-line {
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, #1a237e 50%, transparent 100%);
+            margin: 2rem auto;
+            width: 50%;
+            opacity: 0.6;
+        }
+        
+        .decorative-dots {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #82b1ff;
+            margin: 0 4px;
+        }
+        
+        .dot:nth-child(2) {
+            width: 10px;
+            height: 10px;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .page {
+            animation: fadeIn 0.5s ease-out;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .vs-container {
+                flex-direction: column;
+                gap: 4rem;
+                padding: 1rem;
+            }
+            
+            .vs-divider {
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            
+            .changemaker-card:first-child,
+            .changemaker-card:last-child {
+                margin: 0;
+                width: 100%;
+            }
+
+            main {
+                padding: 0 1rem;
+            }
+        }
+
+        a {
+            color: #82b1ff;
+        }
+
+        a:hover {
+            color: #64b5f6;
+        }
+
+        .team-member p {
+            display: none;
+        }
+
+        .team-member-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 51, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #000080;
+            padding: 3rem;
+            border-radius: 12px;
+            max-width: 600px;  /* Reduced from 700px */
+            width: 90%;
+            position: relative;
+            animation: modalIn 0.3s ease-out; /* Shorter duration */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center; /* Center all content */
+            margin: 0 auto;
+            will-change: transform, opacity;
+        }
+
+        .modal-content .profile-pic {
+            width: 200px;      /* Reduced from 300px */
+            height: 200px;     /* Reduced from 300px */
+            object-fit: cover; /* Maintain aspect ratio */
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 5px solid #1a237e;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #3949ab, #1a237e);
+            padding: 5px;
+            display: block; /* Ensure proper centering */
+        }
+
+        .modal-content h3 {
+            font-size: 2rem;    /* Reduced from 2.2rem */
+            color: #90caf9;  /* Lighter blue */
+            margin-bottom: 0.8rem;
+            text-align: center;
+        }
+
+        .modal-content .role {
+            font-size: 1.2rem;  /* Reduced from 1.3rem */
+            color: #64b5f6;  /* Sky blue */
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .modal-content p:not(.role) {
+            font-size: 1rem;   /* Reduced from 1.1rem */
+            line-height: 1.6;
+            text-align: center;
+            max-width: 500px;  /* Reduced from 600px */
+            margin: 0 auto;
+            color: #ffffff;  /* Pure white */
+        }
+
+        .modal-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            pointer-events: none;
+        }
+
+        .modal-nav-btn {
+            background: rgba(0, 0, 80, 0.8);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: all 0.3s ease;
+        }
+
+        .modal-nav-btn:hover {
+            background: rgba(57, 73, 171, 0.8);
+            transform: scale(1.1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        @keyframes modalIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        p {
+            color: #ffffff;  /* Pure white */
+        }
+
+        ul li {
+            color: #ffffff;  /* Pure white */
+        }
+
+        h3[style*="color"] {
+            color: #82b1ff !important;  /* Light vibrant blue */
+        }
+
+        h4[style*="color"] {
+            color: #64b5f6 !important;  /* Sky blue */
+        }
+
+        /* Add these animation styles to your existing <style> section */
+
+        /* Ripple effect for all clickable elements */
+        .button, .team-member, .theme, .changemaker-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ripple animation */
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Click animation */
+        @keyframes clickPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
+        /* Page transition */
+        @keyframes pageTransition {
+            0% { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Card hover effect */
+        @keyframes cardFloat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Apply animations to elements */
+        .page {
+            animation: pageTransition 0.5s ease-out;
+        }
+
+        .button:active {
+            animation: clickPulse 0.3s ease;
+        }
+
+        .card:hover {
+            animation: cardFloat 3s ease-in-out infinite;
+        }
+
+        /* Ripple effect on click */
+        .button::after,
+        .team-member::after,
+        .theme::after,
+        .changemaker-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .button:active::after,
+        .team-member:active::after,
+        .theme:active::after,
+        .changemaker-card:active::after {
+            animation: ripple 0.8s ease-out;
+        }
+
+        /* Hover effects */
+        .button:hover,
+        .team-member:hover,
+        .theme:hover,
+        .changemaker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Navigation highlight effect */
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover::before {
+            opacity: 1;
+        }
+
+        /* Modal animation */
+        @keyframes modalIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-content {
+            animation: modalIn 0.4s ease-out;
+        }
+
+        /* Navigation buttons pulse effect */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .modal-nav-btn:hover {
+            animation: pulse 1s infinite;
+        }
+
+        /* Decorative elements animation */
+        @keyframes dotPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .dot {
+            animation: dotPulse 2s infinite;
+            animation-delay: calc(var(--dot-index) * 0.3s);
+        }
+
+        .dot:nth-child(1) { --dot-index: 0; }
+        .dot:nth-child(2) { --dot-index: 1; }
+        .dot:nth-child(3) { --dot-index: 2; }
+        
+        .top-banner {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: -2rem;
+        }
+
+        .banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,51,0.8) 0%, rgba(57,73,171,0.4) 100%);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0 1rem;
+        }
+
+        .site-title {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            background: linear-gradient(45deg, #fff, #82b1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            margin: 0;
+            flex: 1;
+            text-align: center;
+        }
+
+        .school-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-left: 2rem;
+        }
+
+        .beyond-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-right: 2rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2rem;
+            }
+            
+            .school-logo,
+            .beyond-logo {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* Add these styles for abstract background designs */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(57, 73, 171, 0.1) 50%, transparent 52%) 0 0/50px 50px,
+                linear-gradient(-45deg, transparent 48%, rgba(26, 35, 126, 0.1) 50%, transparent 52%) 0 0/50px 50px;
+            animation: backgroundShift 60s linear infinite; /* Slower animation */
+            background-size: 100px 100px; /* Larger pattern size */
+        }
+
+        /* Add animated lines */
+        .abstract-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .abstract-lines::before,
+        .abstract-lines::after {
+            content: '';
+            position: absolute;
+            width: 200vw;
+            height: 200vh;
+            top: -50%;
+            left: -50%;
+            background-image: 
+                repeating-linear-gradient(45deg,
+                    rgba(57, 73, 171, 0.03) 0,
+                    rgba(57, 73, 171, 0.03) 1px,
+                    transparent 1px,
+                    transparent 50px
+                ),
+                repeating-linear-gradient(-45deg,
+                    rgba(26, 35, 126, 0.03) 0,
+                    rgba(26, 35, 126, 0.03) 1px,
+                    transparent 1px,
+                    transparent 50px
+                );
+        }
+
+        .abstract-lines::after {
+            animation: lineShift 60s linear infinite; /* Increased duration */
+            will-change: transform; /* Hardware acceleration hint */
+        }
+
+        @keyframes backgroundShift {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100px 100px;
+            }
+        }
+
+        @keyframes lineShift {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Add floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(57, 73, 171, 0.2);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        .particles .particle:nth-child(n+6) {
+            display: none;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+                opacity: 0.2;
+            }
+            50% {
+                transform: translate(-50vw, -50vh);
+                opacity: 0.5;
+            }
+        }
+
+        /* Add these styles to your existing <style> section */
+            .magazine-container {
+    width: 100%;
+    max-width: 800px;
+    perspective: 2000px;
+    min-height: 80vh;  /* Changed from 100vh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.book {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 600px;  /* Fixed height */
+    transform-style: preserve-3d;
+    margin: 0 auto;
+}
+
+.pages {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 0.5s;
+}
+
+.magazine-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: left center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    background: linear-gradient(135deg, #000051, #1a237e);
+    border-radius: 12px;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Update the magazine page container */
+#magazine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* Add these CSS styles inside your <style> tag */
+.coming-soon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 51, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    border-radius: 12px;
+}
+
+.coming-soon-overlay h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.question-mark {
+    font-size: 5rem;
+    color: #82b1ff;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Add to your existing style section */
+#options button {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #000080;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#options button:hover:not([disabled]) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: #1a237e;
+}
+
+#options button:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+#game-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Add to your existing CSS */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: linear-gradient(135deg, #000051, #1a237e);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.chatbot-header {
+    padding: 15px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 12px 12px 0 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-title {
+    color: white;
+    font-weight: bold;
+}
+
+.chatbot-minimize {
+    color: white;
+    font-size: 20px;
+}
+
+.chatbot-messages {
+    height: 300px;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.user-message {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background: rgba(130,177,255,0.1);
+    color: white;
+    align-self: flex-start;
+}
+
+.chatbot-input {
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.chatbot-input button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background: #3949ab;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chatbot-input button:hover {
+    background: #303f9f;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="V.png" alt="Beyond Ventures Logo" class="beyond-logo">
+                <h1 class="site-title">BEYOND VENTURES</h1>
+                <img src="dubaischolars.png" alt="Dubai Scholars Logo" class="school-logo">
+            </div>
+            <p class="tagline">Dubai Scholars Private School's Commerce Magazine</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#team">Our Team</a>
+        <a href="#themes">Themes</a>
+        <a href="#changemakers">Changemakers</a>
+        <a href="#submit">Submit</a>
+        <a href="#game">Quiz Game</a>
+        <a href="#magazine">Magazine</a>
+    </nav>
+
+    <main id="content">
+        <!-- Home Page Content -->
+        <div id="home" class="page">
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Beyond Ventures</h1>
+            <p>Inspiring the next generation of innovators, entrepreneurs, and changemakers through real-world success stories.</p>
+            <a href="#submit" class="button">Share Your Story</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Welcome to Beyond Ventures</h2>
+        <div class="decorative-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <p>Dubai Scholars' first-ever commerce magazine, dedicated to showcasing innovative ideas and inspiring success stories from our community and beyond.</p>
+        
+        <div class="decorative-line"></div>
+
+        <h3 style="color: #1a237e; margin: 2rem 0;">What We Offer</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div style="text-align: center;">
+                <h4 style="color: #3949ab; margin-bottom: 1rem;">Real Success Stories</h4>
+                <p>Learn from both industry giants and emerging underdogs who are making their mark.</p>
+            </div>
+            <div style="text-align: center;">
+                <h4 style="color: #3949ab; margin-bottom: 1rem;">Student Platform</h4>
+                <p>Share your ideas, innovations, and solutions to real-world problems.</p>
+            </div>
+            <div style="text-align: center;">
+                <h4 style="color: #3949ab; margin-bottom: 1rem;">Global Perspective</h4>
+                <p>Connect with changemakers and thought leaders from around the world.</p>
+            </div>
+        </div>
+
+        <div class="decorative-line"></div>
+
+        <h3 style="color: #1a237e; margin: 2rem 0;">Get Involved</h3>
+        <div class="submission-buttons">
+            <a href="#themes" class="button">Explore Themes</a>
+            <a href="#changemakers" class="button">Meet Changemakers</a>
+            <a href="#submit" class="button">Submit Article</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Latest Features</h2>
+        <div class="decorative-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <div class="vs-container" style="margin-top: 2rem;">
+            <div class="changemaker-card">
+                <img src="zubair1.jpeg" alt="Zubair Junjunia" class="changemaker-img">
+                <h3 class="changemaker-name">Education Revolution</h3>
+                <p>Discover how Zubair is transforming global education access through technology.</p>
+                <a href="#changemakers" class="button">Read More</a>
+            </div>
+
+            <div class="changemaker-card">
+                <img src="soheil1.jpg" alt="Soheil Var" class="changemaker-img">
+                <h3 class="changemaker-name">Persistence Pays Off</h3>
+                <p>Learn how Soheil turned multiple rejections into stepping stones for success.</p>
+                <a href="#changemakers" class="button">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- About Page Content -->
+        <div id="about" class="page" style="display: none;">
+    <div class="hero" style="margin-bottom: 2rem;">
+        <div class="hero-content">
+            <h1>About Beyond Ventures</h1>
+            <p>Dubai Scholars' first-ever commerce magazine, empowering the next generation of business leaders.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Our Vision</h2>
+        <div class="decorative-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <p>We aim to inspire and empower students by showcasing real success stories, innovative business ideas, and impactful solutions that shape our future.</p>
+        
+        <div class="decorative-line"></div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+            <div>
+                <h3 style="color: #82b1ff;">Our Mission</h3>
+                <p>To bridge the gap between classroom theory and real-world success by connecting students with inspiring stories and practical insights.</p>
+            </div>
+            
+            <div>
+                <h3 style="color: #82b1ff;">Our Impact</h3>
+                <p>Fostering innovation and entrepreneurship by showcasing how ideas can transform into meaningful ventures that make a difference.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>What We Do</h2>
+        <div class="decorative-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h4 style="color: #64b5f6;">Feature Stories</h4>
+                <p>Showcase inspiring journeys of entrepreneurs and innovators who've made their mark.</p>
+            </div>
+            <div>
+                <h4 style="color: #64b5f6;">Student Platform</h4>
+                <p>Provide a space for students to share their innovative ideas and solutions.</p>
+            </div>
+            <div>
+                <h4 style="color: #64b5f6;">Industry Insights</h4>
+                <p>Connect readers with expert perspectives on current business trends.</p>
+            </div>
+            <div>
+                <h4 style="color: #64b5f6;">Global Impact</h4>
+                <p>Highlight initiatives that create sustainable and meaningful change.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Join Our Journey</h2>
+        <div class="decorative-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <p>Be part of our mission to inspire and empower the next generation of business leaders and changemakers.</p>
+        
+        <div class="submission-buttons" style="margin-top: 2rem;">
+            <a href="#themes" class="button">Explore Our Themes</a>
+            <a href="#submit" class="button">Share Your Story</a>
+        </div>
+    </div>
+</div>
+
+        <!-- Team Page Content -->
+        <div id="team" class="page" style="display: none;">
+    <div class="card">
+        <h2>Meet Our Team</h2>
+        <div class="decorative-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <p>The dedicated individuals behind Beyond Ventures:</p>
+        
+        <div class="team-members">
+    <div class="team-member">
+        <img src="mahin.jpeg" alt="Mahin Kashyap" class="profile-pic">
+        <h3>Mahin Kashyap</h3>
+        <p class="role">Founder & Editor-in-Chief</p>
+        <p>The driving force behind Beyond Ventures, Mahin oversees the editorial content and ensures each article aligns with the publication's vision of showcasing real-world success stories.</p>
+    </div>
+    
+    <div class="team-member">
+        <img src="samyukta.jpeg" alt="Samyukta Shanker" class="profile-pic">
+        <h3>Samyukta Shanker</h3>
+        <p class="role">Content Lead</p>
+        <p>Responsible for leading content creation, developing and curating ideas for articles, interviews, and features, ensuring content is engaging and informative.</p>
+    </div>
+    
+    <div class="team-member">
+        <img src="eleanor.jpeg" alt="Eleanor Pereira" class="profile-pic">
+        <h3>Eleanor Pereira</h3>
+        <p class="role">Logistical & PR Manager</p>
+        <p>Manages logistics, communication with external partners, sponsors, and contributors, while also handling the magazine's social media presence.</p>
+    </div>
+    
+    <div class="team-member">
+        <img src="caroline.jpg" alt="Caroline Jickson" class="profile-pic">
+        <h3>Caroline Jickson</h3>
+        <p class="role">Marketing Director</p>
+        <p>In charge of marketing and promoting Beyond Ventures, developing strategies to engage students and create buzz around the magazine's release.</p>
+    </div>
+    
+    <div class="team-member">
+        <img src="reyaansh-dugad.jpeg" alt="Reyaansh Dugad" class="profile-pic">
+        <h3>Reyaansh Dugad</h3>
+        <p class="role">Senior Coordinator</p>
+        <p>Helps spread the word about Beyond Ventures and assists with public relations. Reyaansh plays a key role in expanding the magazine's reach and building connections with the community.</p>
+    </div>
+</div>
+    </div>
+</div>
+
+        <!-- Themes Page Content -->
+        <div id="themes" class="page" style="display: none;">
+    <div class="card">
+        <h2>This Year's Themes</h2>
+        <div class="decorative-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <p>Under our overarching theme "From Ideas to Impact: The New Wave of Change Makers," we have two exciting sub-themes for submissions:</p>
+        
+        <div class="themes">
+    <div class="theme">
+        <img src="global.jpg" alt="Solving Global Problems">
+        <h3>Solving Global Problems with Innovative Ideas</h3>
+        <p>This theme encourages students to explore how creative and impactful ideas can be used to tackle some of the world's most pressing issues. Your article should:</p>
+        <ul style="text-align: left; margin-top: 1rem;">
+            <li>Link to a UN Sustainable Development Goal</li>
+            <li>Propose an innovative solution</li>
+            <li>Explain potential impact</li>
+            <li>Consider implementation challenges</li>
+        </ul>
+        <a href="https://sigeducation-my.sharepoint.com/:w:/g/personal/sachin6980_dsstudents_com/EUaFFCiePxRLif_fKjNg2moBoGzf0Tot5eszOCmOXkF-KA?e=v5qGLL" 
+           target="_blank" 
+           class="button" 
+           style="margin-top: 1.5rem;">
+            View Rubric
+        </a>
+    </div>
+    
+    <div class="theme">
+        <img src="think.jpg" alt="Fun and Creative Ideas">
+        <h3>Fun and Creative Ideas</h3>
+        <p>This theme focuses on light-hearted, imaginative, and out-of-the-box ideas. Your article can explore:</p>
+        <ul style="text-align: left; margin-top: 1rem;">
+            <li>New ways to engage in sports or activities</li>
+            <li>Creative social initiatives</li>
+            <li>Unusual innovations</li>
+            <li>Entertainment with impact</li>
+        </ul>
+        <a href="https://sigeducation-my.sharepoint.com/:w:/g/personal/sachin6980_dsstudents_com/EdlhGIm-QGFOgcI_MxlnorABvzzCHYdzPOGc-f9OxI2YhA?e=11khRv" 
+           target="_blank" 
+           class="button" 
+           style="margin-top: 1.5rem;">
+            View Rubric
+        </a>
+    </div>
+</div>
+
+        <div class="decorative-line"></div>
+
+        <p style="margin: 2rem 0;">Ready to share your ideas? Choose your theme and start writing!</p>
+        
+        <a href="#submit" class="button">Submit Your Article</a>
+    </div>
+</div>
+
+        <!-- Submit Page Content -->
+        <div id="submit" class="page" style="display: none;">
+    <div class="card">
+        <h2>Submit Your Article</h2>
+        <div class="decorative-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <p>Share your stories and ideas with the Beyond Ventures community.</p>
+        
+        <div class="decorative-line"></div>
+        
+        <h3 style="color: #1a237e; margin: 2rem 0;">Submission Guidelines</h3>
+        <ul class="centered-list">
+            <li>Choose one of our two themes: Global Problem Solving or Fun & Creative Ideas</li>
+            <li>Articles should be between 250-350 words</li>
+            <li>Include relevant images or examples to support your points</li>
+            <li>Write in clear, engaging language</li>
+            <li>Cite all sources properly</li>
+        </ul>
+
+        <div class="decorative-line"></div>
+
+        <h3 style="color: #1a237e; margin: 2rem 0;">How to Submit</h3>
+        <p>Choose your submission option:</p>
+        
+        <div class="submission-buttons">
+            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=WnthKhfesEWVXql-le9m77WZlt3KfkdMjW4fGL6iRTVUNlgxUkhKQVpUQjJJQTBaTEpKWFc4TklFSS4u" target="_blank" class="button">
+                Dubai Scholars Students
+            </a>
+            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=WnthKhfesEWVXql-le9m77WZlt3KfkdMjW4fGL6iRTVUMjIzOEVQMzRXMExGTFZCRkU0MEJWQzlPSS4u" target="_blank" class="button">
+                External Submissions
+            </a>
+        </div>
+
+        <div class="decorative-line"></div>
+
+<div style="margin-top: 2rem;">
+    <h3 style="color: #82b1ff; text-align: center;">🏆 Why Participate?</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+        <div style="background: rgba(0,0,80,0.5); padding: 1.5rem; border-radius: 12px; text-align: center;">
+            <h4 style="color: #64b5f6; margin-bottom: 1rem;">Get Published</h4>
+            <p>Get your article published in Venture Vaults!</p>
+        </div>
+        <div style="background: rgba(0,0,80,0.5); padding: 1.5rem; border-radius: 12px; text-align: center;">
+            <h4 style="color: #64b5f6; margin-bottom: 1rem;">Win Awards</h4>
+            <p>Compete for exclusive awards & recognition.</p>
+        </div>
+        <div style="background: rgba(0,0,80,0.5); padding: 1.5rem; border-radius: 12px; text-align: center;">
+            <h4 style="color: #64b5f6; margin-bottom: 1rem;">Earn Certificate</h4>
+            <p>Receive a certificate of excellence for outstanding contributions.</p>
+        </div>
+        <div style="background: rgba(0,0,80,0.5); padding: 1.5rem; border-radius: 12px; text-align: center;">
+            <h4 style="color: #64b5f6; margin-bottom: 1rem;">Join Community</h4>
+            <p>Join a community of young changemakers shaping the future of business.</p>
+        </div>
+    </div>
+
+    <div class="decorative-line"></div>
+
+    <h3 style="color: #82b1ff; text-align: center; margin-top: 2rem;">🏆 Recognition & Awards</h3>
+    <div style="background: rgba(0,0,80,0.5); padding: 2rem; border-radius: 12px; margin-top: 1.5rem;">
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 1rem; display: flex; align-items: center;">
+                <span style="color: #ffd700; margin-right: 1rem;">🏅</span>
+                <span>The top 10 articles from each category will be featured in Venture Vaults.</span>
+            </li>
+            <li style="margin-bottom: 1rem; display: flex; align-items: center;">
+                <span style="color: #ffd700; margin-right: 1rem;">🎖️</span>
+                <span>The top 3 will receive special awards for their outstanding work.</span>
+            </li>
+            <li style="display: flex; align-items: center;">
+                <span style="color: #ffd700; margin-right: 1rem;">📜</span>
+                <span>All featured participants will receive a certificate of excellence in recognition of their contribution.</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+        <div class="decorative-dots" style="margin-top: 2.5rem;">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <p style="margin-top: 2rem;">Need inspiration? Check out our <a href="#changemakers" style="color: #3949ab;">Changemakers Battle</a> to see how others are making an impact.</p>
+    </div>
+</div>
+
+        <!-- Changemakers Page Content -->
+        <div id="changemakers" class="page" style="display: none;">
+            <div class="card">
+                <h2>Changemakers Battle</h2>
+                <div class="decorative-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <p>Discover the stories of industry giants and emerging underdogs who are transforming ideas into impactful solutions.</p>
+
+                <div class="vs-section">
+                    <h3 class="section-heading">Giants vs. Underdogs Showdown</h3>
+                    <div class="vs-container">
+                        <div class="changemaker-card">
+                            <img src="zubair.jpg" alt="Zubair Junjunia" class="changemaker-img">
+                            <h3 class="changemaker-name">Zubair Junjunia</h3>
+                            <div class="changemaker-type">Industry Giant</div>
+                            <p class="changemaker-desc">Educational activist and social entrepreneur who founded ZNotes at just 16 years old. Through his platform, he has revolutionized education accessibility, reaching over 4 million students globally with free quality resources.</p>
+                            <div class="journey-highlights">
+                                <ul>
+                                    <li>Founded ZNotes at age 16</li>
+                                    <li>Reached 4M+ students worldwide</li>
+                                    <li>Democratizing education access</li>
+                                    <li>Breaking barriers in EdTech</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="vs-divider">VS</div>
+
+                        <div class="changemaker-card">
+                            <img src="soheil.jpg" alt="Soheil Var" class="changemaker-img">
+                            <h3 class="changemaker-name">Soheil Var</h3>
+                            <div class="changemaker-type">Emerging Underdog</div>
+                            <p class="changemaker-desc">A passionate footballer who turned multiple rejections into stepping stones for success. Through persistence and unwavering determination, Soheil proves that setbacks are opportunities for comebacks.</p>
+                            <div class="journey-highlights">
+                                <ul>
+                                    <li>Faced multiple team rejections</li>
+                                    <li>Never gave up on his dreams</li>
+                                    <li>Continued training despite setbacks</li>
+                                    <li>Finally achieved team selection</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battle-comparison">
+                    <h3 style="color: #ffffff; text-align: center; margin-bottom: 2rem;">Impact Comparison</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div style="background-color: rgba(0, 0, 51, 0.8); padding: 1.5rem; border-radius: 12px;">
+                            <h4 style="text-align: center; color: #82b1ff;">Zubair's Approach</h4>
+                            <p style="text-align: center; color: white;">Revolutionizing global education through technology and accessibility. His platform has helped millions of students access quality educational resources for free, breaking down barriers to education and proving that age is no barrier to making a difference.</p>
+                        </div>
+                        <div style="background-color: rgba(0, 0, 51, 0.8); padding: 1.5rem; border-radius: 12px;">
+                            <h4 style="text-align: center; color: #82b1ff;">Soheil's Approach</h4>
+                            <p style="text-align: center; color: white;">From facing multiple rejections in football trials to becoming a successful player, Soheil embodies perseverance. His journey shows that setbacks are stepping stones to success, inspiring young athletes to never give up on their dreams.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#submit" class="button" style="margin: 2.5rem auto 1rem; display: block; width: fit-content;">Get Inspired & Submit Your Article</a>
+            </div>
+        </div>
+
+        <!-- Magazine Page Content -->
+        <div id="magazine" class="page" style="display: none;">
+    <div class="magazine-container">
+        <div class="book">
+            <div id="pages" class="pages">
+                <div class="coming-soon-overlay">
+                    <div class="question-mark">?</div>
+                    <h2>Coming Soon</h2>
+                    <p>Our first issue is in the works!</p>
+                </div>
+                <!-- ...existing magazine pages... -->
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Game Page Content -->
+        <div id="game" class="page" style="display: none;">
+    <div class="card">
+        <h2>Business Quiz Challenge</h2>
+        <div class="decorative-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <div id="game-container" style="text-align: center;">
+            <!-- Content will be dynamically inserted by JavaScript -->
+        </div>
+    </div>
+</div>
+    </main>
+<div class="abstract-lines"></div>
+<div class="particles">
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+    <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
+    <div class="particle" style="left: 50%; animation-delay: 8s;"></div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the current hash or default to home
+        const hash = window.location.hash.slice(1) || 'home';
+        showPage(hash);
+
+        // Add click handlers to all navigation
+        document.querySelectorAll('nav a, a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').slice(1);
+                showPage(targetId);
+                window.history.pushState(null, '', `#${targetId}`);
+                window.scrollTo(0, 0);
+            });
+        });
+
+        const teamMembers = document.querySelectorAll('.team-member');
+        
+        teamMembers.forEach(member => {
+            const modal = createModal(member);
+            document.body.appendChild(modal);
+            
+            member.addEventListener('click', () => {
+                const allMembers = [...document.querySelectorAll('.team-member')];
+                const currentIndex = allMembers.indexOf(member);
+                updateModalContent(modal, allMembers[currentIndex]);
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            modal.querySelector('.close-modal').addEventListener('click', () => {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.team-member-modal').forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Magazine page turning functionality
+        const magazinePages = document.querySelectorAll('.magazine-page:not(.page-cover)');
+        let currentPage = 0;
+
+        magazinePages.forEach((page, index) => {
+            page.addEventListener('click', () => {
+                if (index >= currentPage) {
+                    page.classList.add('flipped');
+                    currentPage = index + 1;
+                } else {
+                    magazinePages.forEach((p, i) => {
+                        if (i >= index) {
+                            p.classList.remove('flipped');
+                        }
+                    });
+                    currentPage = index;
+                }
+            });
+        });
+
+        initializeGame();
+    });
+
+    function showPage(pageId) {
+        // First hide all pages
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.style.display = 'none');
+
+        // Show the selected page
+        const page = document.getElementById(pageId);
+        if (page) {
+            page.style.display = 'block';
+        }
+
+        // Update navigation active state
+        document.querySelectorAll('nav a').forEach(link => {
+            if (link.getAttribute('href') === `#${pageId}`) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    function createModal(member) {
+        const modal = document.createElement('div');
+        modal.className = 'team-member-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <img src="${member.querySelector('img').src}" alt="${member.querySelector('img').alt}" class="profile-pic">
+                <h3>${member.querySelector('h3').textContent}</h3>
+                <p class="role">${member.querySelector('.role').textContent}</p>
+                <p>${member.querySelector('p:not(.role)').textContent}</p>
+                <div class="modal-controls">
+                    <button class="modal-nav-btn prev-member">&larr;</button>
+                    <button class="modal-nav-btn next-member">&rarr;</button>
+                </div>
+            </div>
+        `;
+
+        const prevBtn = modal.querySelector('.prev-member');
+        const nextBtn = modal.querySelector('.next-member');
+        const allMembers = [...document.querySelectorAll('.team-member')];
+
+        // Store the initial index when modal is created
+        modal.dataset.initialIndex = allMembers.indexOf(member);
+        let currentIndex = allMembers.indexOf(member);
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + allMembers.length) % allMembers.length;
+            updateModalContent(modal, allMembers[currentIndex]);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % allMembers.length;
+            updateModalContent(modal, allMembers[currentIndex]);
+        });
+
+        // Reset index when modal is closed
+        modal.querySelector('.close-modal').addEventListener('click', () => {
+            currentIndex = parseInt(modal.dataset.initialIndex);
+            updateModalContent(modal, allMembers[currentIndex]);
+        });
+
+        return modal;
+    }
+
+    function updateModalContent(modal, member) {
+        const content = modal.querySelector('.modal-content');
+        content.querySelector('img').src = member.querySelector('img').src;
+        content.querySelector('img').alt = member.querySelector('img').alt;
+        content.querySelector('h3').textContent = member.querySelector('h3').textContent;
+        content.querySelector('.role').textContent = member.querySelector('.role').textContent;
+        content.querySelector('p:not(.role)').textContent = member.querySelector('p:not(.role)').textContent;
+    }
+
+    // Add debouncing for scroll and resize events
+    function debounce(func, wait) {
+        let timeout;
+        return function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, arguments), wait);
+        };
+    }
+
+    // Optimize animation handling
+    window.addEventListener('scroll', debounce(() => {
+        // Your scroll handling code
+    }, 16));
+
+    // Reduce animation frames for particles
+    const particles = document.querySelectorAll('.particle');
+    particles.forEach(particle => {
+        particle.style.animationDuration = '30s'; // Slower animation
+    });
+
+    const questions = [
+        {
+            question: "What does ROI stand for?",
+            options: [
+                "Return On Investment",
+                "Rate Of Interest",
+                "Risk Of Investment",
+                "Return On Income"
+            ],
+            correct: 0
+        },
+        {
+            question: "Which of these is not one of the 4 P's of Marketing?",
+            options: [
+                "Price",
+                "Product",
+                "People",
+                "Promotion"
+            ],
+            correct: 2
+        },
+        {
+            question: "What type of business structure offers limited liability to its owners?",
+            options: [
+                "Sole Proprietorship",
+                "Partnership",
+                "Limited Company",
+                "Cooperative"
+            ],
+            correct: 2
+        },
+        {
+            question: "What is the term for buying and selling of shares through electronic media?",
+            options: [
+                "Digital Trading",
+                "E-Commerce",
+                "Online Banking",
+                "E-Trading"
+            ],
+            correct: 3
+        },
+        {
+            question: "Which financial statement shows a company's assets, liabilities, and equity?",
+            options: [
+                "Income Statement",
+                "Cash Flow Statement",
+                "Balance Sheet",
+                "Annual Report"
+            ],
+            correct: 2
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let questionContainer, optionsContainer, nextButton, resultContainer, scoreDisplay;
+
+    // Add this at the beginning of your script
+const leaderboard = JSON.parse(localStorage.getItem('quizLeaderboard')) || [];
+
+function initializeGame() {
+    // Replace the game-container content with name input first
+    document.getElementById('game-container').innerHTML = `
+        <div id="name-input-container" style="text-align: center;">
+            <h3 style="color: #82b1ff; margin-bottom: 1.5rem;">Enter Your Name</h3>
+            <input type="text" 
+                   id="player-name" 
+                   placeholder="Your Name"
+                   style="padding: 0.8rem;
+                          border-radius: 8px;
+                          border: none;
+                          margin-bottom: 1rem;
+                          width: 80%;
+                          max-width: 300px;
+                          background: rgba(255,255,255,0.9);">
+            <button id="start-game" class="button">Start Quiz</button>
+        </div>
+        <div id="quiz-content" style="display: none;">
+            <div id="score-display">Score: <span id="score">0</span></div>
+            <div id="question-container">
+                <h3 id="question"></h3>
+                <div id="options"></div>
+            </div>
+            <button id="next-btn" class="button" style="display: none;">Next Question</button>
+            <div id="result" style="display: none;">
+                <h3>Quiz Complete!</h3>
+                <p id="final-score"></p>
+                <div id="leaderboard">
+                    <h4>Top Scores</h4>
+                    <div id="leaderboard-list"></div>
+                </div>
+                <button id="restart-btn" class="button">Play Again</button>
+            </div>
+        </div>
+    `;
+
+    document.getElementById('start-game').addEventListener('click', startGame);
+    document.getElementById('restart-btn').addEventListener('click', restartGame);
+}
+
+let currentPlayer = '';
+
+function startGame() {
+    const playerName = document.getElementById('player-name').value.trim();
+    if (!playerName) {
+        alert('Please enter your name to start the quiz!');
+        return;
+    }
+    
+    currentPlayer = playerName;
+    document.getElementById('name-input-container').style.display = 'none';
+    document.getElementById('quiz-content').style.display = 'block';
+    
+    // Initialize game elements
+    questionContainer = document.getElementById('question');
+    optionsContainer = document.getElementById('options');
+    nextButton = document.getElementById('next-btn');
+    resultContainer = document.getElementById('result');
+    scoreDisplay = document.getElementById('score');
+    
+    // Attach event listeners
+    nextButton.addEventListener('click', showNextQuestion);
+    
+    // Start the game
+    showQuestion(0);
+}
+
+function showQuestion(index) {
+    const question = questions[index];
+    questionContainer.textContent = question.question;
+    optionsContainer.innerHTML = '';
+    
+    question.options.forEach((option, i) => {
+        const button = document.createElement('button');
+        button.className = 'button';
+        button.style.margin = '0.5rem';
+        button.textContent = option;
+        button.addEventListener('click', () => checkAnswer(i));
+        optionsContainer.appendChild(button);
+    });
+    
+    nextButton.style.display = 'none';
+}
+
+function checkAnswer(selectedIndex) {
+    const correct = questions[currentQuestion].correct;
+    const buttons = optionsContainer.getElementsByTagName('button');
+    
+    for (let button of buttons) {
+        button.disabled = true;
+    }
+    
+    if (selectedIndex === correct) {
+        buttons[selectedIndex].style.backgroundColor = '#4CAF50';
+        score++;
+        scoreDisplay.textContent = score;
+    } else {
+        buttons[selectedIndex].style.backgroundColor = '#f44336';
+        buttons[correct].style.backgroundColor = '#4CAF50';
+    }
+    
+    if (currentQuestion < questions.length - 1) {
+        nextButton.style.display = 'inline-block';
+    } else {
+        showResult();
+    }
+}
+
+function showNextQuestion() {
+    currentQuestion++;
+    showQuestion(currentQuestion);
+}
+
+function showResult() {
+    document.getElementById('question-container').style.display = 'none';
+    resultContainer.style.display = 'block';
+    document.getElementById('final-score').textContent = 
+        `${currentPlayer}, you scored ${score} out of ${questions.length}!`;
+    updateLeaderboard(currentPlayer, score);
+}
+
+function updateLeaderboard(playerName, playerScore) {
+    leaderboard.push({
+        name: playerName,
+        score: playerScore,
+        date: new Date().toLocaleDateString()
+    });
+    
+    // Sort by score (highest first)
+    leaderboard.sort((a, b) => b.score - a.score);
+    
+    // Keep only top 10
+    if (leaderboard.length > 10) {
+        leaderboard.length = 10;
+    }
+    
+    // Save to localStorage
+    localStorage.setItem('quizLeaderboard', JSON.stringify(leaderboard));
+    
+    // Display leaderboard
+    const leaderboardList = document.getElementById('leaderboard-list');
+    leaderboardList.innerHTML = leaderboard.map((entry, index) => `
+        <div style="display: flex; justify-content: space-between; 
+                    padding: 0.5rem; 
+                    background: ${index === 0 ? 'rgba(255,215,0,0.2)' : 'rgba(0,0,80,0.3)'};
+                    margin-bottom: 0.5rem; 
+                    border-radius: 4px;">
+            <span>${index + 1}. ${entry.name}</span>
+            <span>${entry.score}/${questions.length}</span>
+        </div>
+    `).join('');
+}
+
+function restartGame() {
+    currentQuestion = 0;
+    score = 0;
+    document.getElementById('quiz-content').style.display = 'none';
+    document.getElementById('name-input-container').style.display = 'block';
+    document.getElementById('player-name').value = '';
+    scoreDisplay = document.getElementById('score');
+    scoreDisplay.textContent = '0';
+    document.getElementById('question-container').style.display = 'block';
+    resultContainer.style.display = 'none';
+}
+
+// Add to your existing JavaScript
+const chatResponses = {
+    greetings: [
+        "Hello! I'm Mr.Beyond, your AI assistant for Beyond Ventures!",
+        "Hi there! I'm excited to help you explore Beyond Ventures!",
+        "Welcome! I'm Mr.Beyond, ready to assist with anything you need."
+    ],
+    magazine: [
+        "Our first issue is coming soon! It will feature inspiring stories of young entrepreneurs and innovators.",
+        "Beyond Ventures magazine focuses on two main themes: Global Problem Solving and Fun & Creative Ideas.",
+        "The magazine aims to showcase student innovations and entrepreneurial spirit."
+    ],
+    themes: {
+        global: [
+            "The 'Solving Global Problems' theme connects your ideas to UN Sustainable Development Goals.",
+            "This theme lets you propose innovative solutions to real-world challenges.",
+            "You can tackle issues like climate change, education, poverty, or any global challenge."
+        ],
+        creative: [
+            "The 'Fun and Creative Ideas' theme welcomes light-hearted and imaginative solutions.",
+            "You can write about new ways to engage in sports, social initiatives, or entertainment.",
+            "This theme encourages thinking outside the box and bringing joy through innovation."
+        ]
+    },
+    team: {
+        general: "Our team consists of dedicated students passionate about business and innovation.",
+        members: {
+            mahin: "Mahin Kashyap is our Founder & Editor-in-Chief, overseeing the editorial content.",
+            samyukta: "Samyukta Shanker leads content creation and curation.",
+            eleanor: "Eleanor Pereira manages logistics and PR.",
+            caroline: "Caroline Jickson directs our marketing efforts.",
+            reyaansh: "Reyaansh Dugad coordinates public relations and community engagement."
+        }
+    },
+    submission: {
+        guidelines: [
+            "Articles should be 250-350 words long.",
+            "Choose between Global Problem Solving or Fun & Creative Ideas themes.",
+            "Include relevant images or examples.",
+            "Cite all sources properly."
+        ],
+        process: [
+            "Dubai Scholars students can submit through the internal form.",
+            "External submissions are welcome through our dedicated external form.",
+            "All submissions are reviewed based on our rubric."
+        ]
+    },
+    quiz: [
+        "Test your business knowledge with our interactive quiz!",
+        "The quiz features questions about business concepts and entrepreneurship.",
+        "Compete for a spot on our leaderboard!"
+    ],
+    help: [
+        "I can help you with:",
+        "• Magazine information and themes",
+        "• Submission guidelines and process",
+        "• Team information",
+        "• Quiz game details",
+        "• General inquiries about Beyond Ventures"
+    ],
+    context: {
+        lastTopic: null,
+        lastQuestion: null,
+        conversationHistory: []
+    },
+
+    followUp: {
+        magazine: [
+            "Would you like to know more about our submission process?",
+            "Should I explain our themes in more detail?",
+            "Would you like to see some example articles?"
+        ],
+        submission: [
+            "Would you like me to explain the guidelines?",
+            "Should I show you the submission form links?",
+            "Would you like tips for writing a great article?"
+        ],
+        themes: [
+            "Which theme interests you more - global problems or creative ideas?",
+            "Would you like examples of successful articles in this theme?",
+            "Should I explain the evaluation criteria for this theme?"
+        ]
+    },
+
+    tips: {
+        writing: [
+            "Start with a compelling hook to grab attention",
+            "Use concrete examples to support your ideas",
+            "Keep paragraphs short and focused",
+            "End with a strong call to action"
+        ],
+        submission: [
+            "Double-check your word count (250-350 words)",
+            "Include relevant images or diagrams",
+            "Proofread carefully before submitting",
+            "Follow the theme guidelines closely"
+        ]
+    },
+
+    examples: {
+        topics: [
+            "Sustainable fashion marketplace for teens",
+            "App connecting student volunteers with local causes",
+            "Smart recycling system for schools",
+            "Social platform for student entrepreneurs"
+        ]
+    }
+};
+
+// Update the generateResponse function
+function generateResponse(message) {
+    const lowerMessage = message.toLowerCase();
+    let response = '';
+
+    // Store conversation context
+    chatResponses.context.conversationHistory.push(message);
+    chatResponses.context.lastQuestion = message;
+
+    // Handle greetings with context
+    if (lowerMessage.match(/\b(hi|hello|hey|greet)\b/)) {
+        const isReturn = chatResponses.context.conversationHistory.length > 2;
+        return isReturn ? 
+            "Welcome back! Shall we continue our discussion?" :
+            chatResponses.greetings[Math.floor(Math.random() * chatResponses.greetings.length)];
+    }
+
+    // Handle topic-specific responses
+    if (lowerMessage.match(/\b(magazine|article|publish)\b/)) {
+        chatResponses.context.lastTopic = 'magazine';
+        response = chatResponses.magazine[Math.floor(Math.random() * chatResponses.magazine.length)];
+        return response + "\n\n" + chatResponses.followUp.magazine[Math.floor(Math.random() * chatResponses.followUp.magazine.length)];
+    }
+
+    // Handle follow-up questions
+    if (lowerMessage.match(/\b(yes|sure|okay|tell me|please)\b/) && chatResponses.context.lastTopic) {
+        switch(chatResponses.context.lastTopic) {
+            case 'magazine':
+                return chatResponses.submission.guidelines.join('\n');
+            case 'submission':
+                return chatResponses.tips.submission.join('\n');
+            case 'themes':
+                return chatResponses.examples.topics.join('\n');
+        }
+    }
+
+    // Handle specific questions about writing
+    if (lowerMessage.match(/\b(how|tips|advice)\b/) && lowerMessage.match(/\b(write|writing|article)\b/)) {
+        return "Here are some writing tips:\n" + chatResponses.tips.writing.join('\n');
+    }
+
+    // Handle requests for examples
+    if (lowerMessage.match(/\b(example|sample|idea)\b/)) {
+        return "Here are some article ideas:\n" + chatResponses.examples.topics.join('\n');
+    }
+
+    // Add intelligence to topic switching
+    if (chatResponses.context.lastTopic && lowerMessage.match(/\b(different|other|another)\b/)) {
+        const topics = ['magazine', 'submission', 'themes'];
+        const currentIndex = topics.indexOf(chatResponses.context.lastTopic);
+        const nextTopic = topics[(currentIndex + 1) % topics.length];
+        chatResponses.context.lastTopic = nextTopic;
+        return `Let's talk about ${nextTopic}. ` + chatResponses[nextTopic][0];
+    }
+
+    // ...existing response patterns...
+
+    return response || chatResponses.help.join('\n');
+}
+
+// Add typing animation
+function addMessage(type, message) {
+    const messages = document.querySelector('.chatbot-messages');
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', `${type}-message`);
+    
+    if (type === 'bot') {
+        messageDiv.textContent = '...';
+        messages.appendChild(messageDiv);
+        messages.scrollTop = messages.scrollHeight;
+        
+        let i = 0;
+        const text = message;
+        const typeSpeed = 30;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                messageDiv.textContent = text.substring(0, i + 1);
+                i++;
+                setTimeout(typeWriter, typeSpeed);
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
+    } else {
+        messageDiv.textContent = message;
+        messages.appendChild(messageDiv);
+    }
+    
+    messages.scrollTop = messages.scrollHeight;
+}
+
+// Add these functions at the end of your script section
+
+function toggleChatbot() {
+    const chatbot = document.getElementById('chatbot-container');
+    const messages = chatbot.querySelector('.chatbot-messages');
+    const minimize = chatbot.querySelector('.chatbot-minimize');
+    
+    if (messages.style.display === 'none') {
+        messages.style.display = 'flex';
+        chatbot.querySelector('.chatbot-input').style.display = 'flex';
+        minimize.textContent = '−';
+    } else {
+        messages.style.display = 'none';
+        chatbot.querySelector('.chatbot-input').style.display = 'none';
+        minimize.textContent = '+';
+    }
+}
+
+function sendMessage() {
+    const input = document.getElementById('user-input');
+    const message = input.value.trim();
+    
+    if (message) {
+        addMessage('user', message);
+        input.value = '';
+        
+        // Get bot response
+        const response = generateResponse(message);
+        addMessage('bot', response);
+    }
+}
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+// Also add this style to fix the chatbot input display
+document.querySelector('.chatbot-input').style.display = 'flex';
+</script>
+<!-- Add this HTML just before the closing </body> tag -->
+<div id="chatbot-container" class="chatbot-container">
+    <div class="chatbot-header" onclick="toggleChatbot()">
+        <span class="chatbot-title">Mr.Beyond</span>
+        <span class="chatbot-minimize">−</span>
+    </div>
+    <div class="chatbot-messages"></div>
+    <div class="chatbot-input">
+        <input type="text" id="user-input" placeholder="Ask me anything..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+// Core chatbot functions
+function sendMessage() {
+    const input = document.getElementById('user-input');
+    const message = input.value.trim();
+    
+    if (message) {
+        addMessage('user', message);
+        input.value = '';
+        
+        setTimeout(() => {
+            const response = generateResponse(message);
+            addMessage('bot', response);
+        }, 500);
+    }
+}
+
+function addMessage(type, message) {
+    const messages = document.querySelector('.chatbot-messages');
+    if (!messages) return;
+
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', `${type}-message`);
+    
+    if (type === 'bot') {
+        messageDiv.textContent = '...';
+        messages.appendChild(messageDiv);
+        messages.scrollTop = messages.scrollHeight;
+        
+        let i = 0;
+        const text = message;
+        const typeSpeed = 30;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                messageDiv.textContent = text.substring(0, i + 1);
+                i++;
+                setTimeout(typeWriter, typeSpeed);
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
+    } else {
+        messageDiv.textContent = message;
+        messages.appendChild(messageDiv);
+    }
+    
+    messages.scrollTop = messages.scrollHeight;
+}
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+function toggleChatbot() {
+    const chatbot = document.getElementById('chatbot-container');
+    const messages = chatbot.querySelector('.chatbot-messages');
+    const minimize = chatbot.querySelector('.chatbot-minimize');
+    const input = chatbot.querySelector('.chatbot-input');
+    
+    if (messages.style.display === 'none') {
+        messages.style.display = 'flex';
+        input.style.display = 'flex';
+        minimize.textContent = '−';
+    } else {
+        messages.style.display = 'none';
+        input.style.display = 'none';
+        minimize.textContent = '+';
+    }
+}
+
+// Initialize chatbot
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        addMessage('bot', "Hi! I'm Mr.Beyond, your friendly guide to Beyond Ventures. How can I help you today? 😊");
+    }, 1000);
+});
+</script>
+</body>
+</html>
